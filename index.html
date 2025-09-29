@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kids Vision Play — Eye Therapy App</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h2 class="h4 mb-0 text-light">Kids Vision Therapy</h2>
+                <small class="text-light">10 gentle exercises for tracking, focus & peripheral awareness</small>
+            </div>
+            <div class="d-flex gap-2">
+                <button id="resetBtn" class="btn btn-outline-danger btn-sm">Reset</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 mb-3">
+                <div class="app-stage p-3 bg-dark" id="stage">
+                    <div id="playArea" class="w-100 h-100 position-relative bg-dark" aria-live="polite"></div>
+                </div>
+            </div>
+            <div class="col-lg-4  col-md-12 col-sm-12">
+                <div class="card bg-dark text-light mb-3 shadow-sm">
+                    <div class="card-body">
+                        <h6>Controls</h6>
+                        <div class="mb-2 control-row">
+                            <label class="form-label small">Choose Exercise</label>
+                            <select id="exerciseSelect" class="form-select bg-dark text-light">
+                                <!-- options injected -->
+                            </select>
+                        </div>
+                        <div class="mb-2 d-flex gap-2 control-row">
+                            <div>
+                                <label class="form-label small">Duration</label>
+                                <select id="duration" class="form-select bg-dark text-light">
+                                    <option value="30" selected>30s</option>
+                                    <option value="60">60s</option>
+                                    <option value="120">120s</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="form-label small">Speed</label>
+                                <select id="speed" class="form-select bg-dark text-light">
+                                    <option value="0.35" selected>Slow</option>
+                                    <option value="0.85">Medium</option>
+                                    <option value="1.25">Fast</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label class="form-label small">Sound</label>
+                                <select id="soundToggle" class="form-select bg-dark text-light">
+                                    <option value="on" selected>On</option>
+                                    <option value="off">Off</option>
+                                </select>
+                            </div>
+                        </div>
+                        <hr>
+                        <h6 class="small">Quick Tips</h6>
+                        <ul class="small">
+                            <li>Keep device at eye level.</li>
+                            <li>Encourage kids to keep head still and only move their eyes.</li>
+                            <li>Use <strong>Slow</strong> for younger children (3–6 years).</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card bg-dark text-light shadow-sm">
+                    <div class="card-body">
+                        <h6>Session: <span id="sessionCount"></span></h6>
+                        <div>Score: <span id="score">0</span></div>
+                        <div>Time: <span id="timeLeft">00:30</span></div>
+                        <div>Speed: <span id="speedLabel">Medium</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-light" style="pointer-events:auto">
+            <h4 id="exerciseTitle">Select an exercise</h4>
+            <p class="small text-text-light" id="exerciseDesc">Use the controls to set duration & speed, then press Start.</p>
+            <div class="mt-2 d-flex gap-2 justify-content-center">
+                <button id="startBtn" class="btn btn-primary btn-lg">Start</button>
+                <button id="stopBtn" class="btn btn-outline-primary btn-lg">Stop</button>
+            </div>
+        </div>
+        <footer class="text-center text-light mt-3">Note: This app is educational — not a medical device. Consult a specialist for therapy plans.</footer>
+    </div>
+    <!-- templates -->
+    <template id="dotTpl">
+        <div class="dot">😊</div>
+    </template>
+    <template id="ballTpl">
+        <div class="ball">⚽</div>
+    </template>
+    <template id="starTpl">
+        <div class="star">★</div>
+    </template>
+    <template id="edgeTpl">
+        <div class="edge-target">🎈</div>
+    </template>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
